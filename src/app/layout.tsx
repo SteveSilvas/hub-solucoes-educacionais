@@ -1,16 +1,14 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Open_Sans } from "next/font/google";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+const openSans = Open_Sans({
+  subsets: ['latin'],
+  weight: ['400', '600', '700'],
+  variable: '--font-default',
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -22,12 +20,24 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+    <html lang="pt-br">
+      <head>
+        <title>Hub de Soluções Educacionais ESQ</title>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+      </head>
+      <body className={`${openSans.variable} font-sans flex flex-col min-h-screen`}>
+        <header className="w-full fixed top-0 left-0 z-50">
+          <div className="fixed w-full">
+            <Navbar />
+          </div>
+        </header>
+        <main className="flex-grow w-full mt-[100px]">
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   );
