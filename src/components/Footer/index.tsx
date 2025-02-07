@@ -4,7 +4,7 @@ import CompanyLink from "../CompanyLink";
 
 export default function Footer() {
   return (
-    <footer className="bg-blue_d text-white py-6 mt-auto">
+    <div className="bg-blue_d text-white py-6">
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center px-4">
         <div className="text-center md:text-left mb-4 md:mb-0">
           <h2 className="text-2xl font-bold">ESQ</h2>
@@ -43,6 +43,6 @@ export default function Footer() {
         <p>&copy; {new Date().getFullYear()} Hub de Soluções Educacionais ESQ. Todos os direitos reservados.</p>
       </div>
       <CompanyLink />
-    </footer>
+    </div>
   );
 }
